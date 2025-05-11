@@ -9,10 +9,6 @@ export default async function handler(req, res) {
       title: "Bank Transfer",
       details: "Account Number - 12345678, BSB - 987654"
     },
-    {
-      title: "Online Payment Portal",
-      details: "Visit https://strata-estate.vercel.app/"
-    }
   ];
 
   // Respond with the payment information
