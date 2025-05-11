@@ -8,15 +8,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script>
     async function fetchMaintenance() {
+      // Fetch maintenance data from the edge function
       const response = await fetch('/api/get-maintenance');
       const tasks = await response.json();
       const list = document.getElementById('maintenance-list');
+      list.innerHTML = ''; // Clear existing content
+
       tasks.forEach(task => {
         const li = document.createElement('li');
         li.textContent = `${task.title}: ${task.details}`;
         list.appendChild(li);
       });
     }
+
+    // Load maintenance tasks when the page loads
     window.onload = fetchMaintenance;
   </script>
 </head>
@@ -32,15 +37,8 @@
     </ul>
   </nav>
   <div class="container">
-    <h1>Ongoing Tasks</h1>
+    <h1>Ongoing Maintenance Tasks</h1>
     <ul id="maintenance-list"></ul>
-
-    <h2>Submit a Maintenance Request</h2>
-    <form method="POST" action="/api/update-maintenance">
-      <label for="task">Task Description:</label>
-      <input type="text" id="task" name="task" required>
-      <button type="submit" class="cta-button">Submit</button>
-    </form>
   </div>
   <footer>
     <p>&copy; 2025 Strata Management</p>
