@@ -6,19 +6,17 @@
     }
   ],
   "regions": ["syd1"],
-
   "functions": {
     "api/get-maintenance.js": {
-      "runtime": "edge"
+      "runtime": "vercel-edge@1.0.0"
     },
     "api/get-notices.js": {
-      "runtime": "edge"
+      "runtime": "vercel-edge@1.0.0"
     },
     "api/process-payment.js": {
-      "runtime": "edge"
+      "runtime": "vercel-edge@1.0.0"
     }
   },
-
   "headers": [
     {
       "source": "/assets/(.*)",
