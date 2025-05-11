@@ -6,15 +6,34 @@
   <title>Payments</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    ul {
-      list-style-type: none;
-      padding: 0;
+  <script>
+    async function fetchPaymentInfo() {
+      try {
+        // Fetch payment information from the API
+        const response = await fetch('/api/process-payment');
+        const paymentInfo = await response.json();
+
+        // Update the page with payment information
+        const list = document.getElementById('payment-list');
+        list.innerHTML = ''; // Clear existing content
+
+        paymentInfo.forEach(info => {
+          const li = document.createElement('li');
+          li.className = 'payment-item';
+          li.innerHTML = `
+            <h3>${info.title}</h3>
+            <p>${info.details}</p>
+          `;
+          list.appendChild(li);
+        });
+      } catch (error) {
+        console.error('Error fetching payment information:', error);
+      }
     }
-    ul li {
-      margin-bottom: 10px; 
-    }
-  </style>
+
+    // Load payment information when the page loads
+    window.onload = fetchPaymentInfo;
+  </script>
 </head>
 <body>
   <nav>
@@ -29,12 +48,7 @@
   </nav>
   <div class="container">
     <h1>Payment Instructions</h1>
-    <p>To ensure smooth operation of the building, please make your payments on time.</p>
-
-    <p>You can pay using the following methods:</p>
-    <ul>
-      <li>Bank Transfer: Account Number - 12345678, BSB - 987654</li>
-    </ul>
+    <ul id="payment-list"></ul>
   </div>
   <footer>
     <p>&copy; 2025 Strata Management</p>
