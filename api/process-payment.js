@@ -1,14 +1,21 @@
 export default async function handler(req, res) {
-  // Edge function for processing payments
-  if (req.method === 'POST') {
-    const { amount } = req.body;
-    
-    // In a real app, you would process the payment here
-    console.log(`Processing payment of $${amount}`);
-    
-    // Redirect after successful payment
-    res.redirect(307, '/payment-success');
+  if (req.method === 'GET') {
+    // Payment information to display
+    const paymentInfo = {
+      title: "Payment Instructions",
+      description: "To ensure smooth operation of the building, please make your payments on time.",
+      methods: [
+        {
+          type: "Bank Transfer",
+          details: "Account Number - 12345678, BSB - 987654"
+        }
+      ]
+    };
+
+    // Respond with the payment information
+    return res.status(200).json(paymentInfo);
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    // Return a 405 Method Not Allowed for unsupported methods
+    return res.status(405).json({ message: "Method not allowed" });
   }
 }
