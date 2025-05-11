@@ -8,13 +8,13 @@
   "regions": ["syd1"],
   "functions": {
     "api/get-maintenance.js": {
-      "runtime": "vercel-edge@1.0.0"
+      "runtime": "@vercel/node"
     },
     "api/get-notices.js": {
-      "runtime": "vercel-edge@1.0.0"
+      "runtime": "@vercel/node"
     },
     "api/process-payment.js": {
-      "runtime": "vercel-edge@1.0.0"
+      "runtime": "@vercel/node"
     }
   },
   "headers": [
