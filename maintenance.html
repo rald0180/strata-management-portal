@@ -6,24 +6,7 @@
   <title>Maintenance</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <script>
-    async function fetchMaintenance() {
-      // Fetch maintenance data from the edge function
-      const response = await fetch('/api/get-maintenance');
-      const tasks = await response.json();
-      const list = document.getElementById('maintenance-list');
-      list.innerHTML = ''; // Clear existing content
 
-      tasks.forEach(task => {
-        const li = document.createElement('li');
-        li.textContent = `${task.title}: ${task.details}`;
-        list.appendChild(li);
-      });
-    }
-
-    // Load maintenance tasks when the page loads
-    window.onload = fetchMaintenance;
-  </script>
 </head>
 <body>
   <nav>

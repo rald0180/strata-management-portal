@@ -6,15 +6,50 @@
   <title>Notices</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+  
+    ul#notices {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul#notices .notice-item {
+      margin-bottom: 20px;
+    }
+  </style>
   <script>
-    async function fetchNotices() {
-      // Fetch notices from the edge function
-      const response = await fetch('/api/get-notices');
-      const notices = await response.json();
+    function loadFakeNotices() {
+      const fakeNotices = [
+        {
+          title: "Annual General Meeting",
+          details: "The AGM will be held on June 15, 2025 at 7:00 PM in the community room. All residents are encouraged to attend.",
+          date: "May 5, 2025"
+        },
+        {
+          title: "Pool Maintenance",
+          details: "The swimming pool will be closed for maintenance from May 20-22, 2025. We apologize for any inconvenience.",
+          date: "May 8, 2025"
+        },
+        {
+          title: "Fire Alarm Testing",
+          details: "Mandatory fire alarm testing will take place on May 25, 2025 from 10:00 AM to 12:00 PM.",
+          date: "May 10, 2025"
+        },
+        {
+          title: "Visitor Parking Update",
+          details: "Starting June 1, all visitors must register their vehicles at the management office. Unregistered vehicles will be towed at owner's expense.",
+          date: "May 11, 2025"
+        },
+        {
+          title: "Garden Committee Volunteers",
+          details: "The Garden Committee is seeking volunteers for the summer planting session. Please contact Linda Davis if you're interested in participating.",
+          date: "May 9, 2025"
+        }
+      ];
+      
       const list = document.getElementById('notices');
-      list.innerHTML = ''; // Clear existing content
-
-      notices.forEach(notice => {
+      list.innerHTML = ''; 
+      
+      fakeNotices.forEach(notice => {
         const li = document.createElement('li');
         li.className = 'notice-item';
         li.innerHTML = `
@@ -25,9 +60,8 @@
         list.appendChild(li);
       });
     }
-
-    // Load notices when the page loads
-    window.onload = fetchNotices;
+    
+    window.onload = loadFakeNotices;
   </script>
 </head>
 <body>
@@ -43,6 +77,7 @@
   </nav>
   <div class="container">
     <h1>Building Notices</h1>
+    <p>Stay informed about important announcements and upcoming events in our building.</p>
     <ul id="notices"></ul>
   </div>
   <footer>
