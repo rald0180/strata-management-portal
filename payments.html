@@ -4,22 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payments</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Remove bullet points from the list */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 10px; /* Add spacing between list items */
+    }
+  </style>
 </head>
 <body>
-  <h1>Payments</h1>
-  <p>To ensure smooth operation of the building, please make your payments on time.</p>
-  <h2>Payment Instructions</h2>
-  <p>You can pay using the following methods:</p>
-  <ul>
-    <li>Bank Transfer: Account Number - 12345678, BSB - 987654</li>
-    <li>Online Payment Portal: Visit <a href="https://strata-estate.vercel.app/">our website</a></li>
-  </ul>
+  <nav>
+    <div class="logo">Payments</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="maintenance.html">Maintenance</a></li>
+      <li><a href="notices.html">Notices</a></li>
+      <li><a href="payments.html">Payments</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Payment Instructions</h1>
+    <p>To ensure smooth operation of the building, please make your payments on time.</p>
 
-  <h2>Submit Payment Details</h2>
-  <form method="POST" action="/api/process-payment">
-    <label for="amount">Amount:</label>
-    <input type="number" id="amount" name="amount" required>
-    <button type="submit">Submit Payment</button>
-  </form>
+    <p>You can pay using the following methods:</p>
+    <ul>
+      <li>Bank Transfer: Account Number - 12345678, BSB - 987654</li>
+    </ul>
+  </div>
+  <footer>
+    <p>&copy; 2025 Strata Management</p>
+  </footer>
 </body>
 </html>

@@ -4,13 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Center the container and align form elements */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh; /* Full viewport height */
+      padding: 20px;
+    }
+
+    /* Adjust spacing for the h1 heading */
+    .container h1 {
+      font-size: 2rem;
+      margin-top: 10px; /* Reduce space above the heading */
+      margin-bottom: 10px; /* Reduce space below the heading */
+    }
+
+    /* Form alignment and spacing */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px; /* Limit the form width */
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form group styling */
+    .form-group {
+      margin-bottom: 20px;
+      width: 100%; /* Ensure inputs take up full width of form */
+    }
+
+    /* Label styling */
+    .form-group label {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: block; /* Place label on its own line */
+      text-align: left; /* Align label text to the left */
+    }
+
+    /* Input and textarea styling */
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 14px;
+      border: 1px solid #d1d5db; /* Light gray border */
+      border-radius: 5px;
+      box-sizing: border-box; /* Ensure padding doesn't affect width */
+      background-color: #f9fafb; /* Match the body background color */
+    }
+
+    /* Textarea specific styling */
+    .form-group textarea {
+      resize: vertical; /* Allow vertical resizing only */
+      height: 100px; /* Default height */
+    }
+
+    /* Button styling */
+    .cta-button {
+      background-color: #1e3a8a; /* Deep blue */
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%; /* Full-width button */
+      max-width: 150px; /* Limit the button width */
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #2563eb; /* Lighter shade of blue */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      form {
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Contact Us</h1>
-  <form method="POST" action="/api/update-maintenance">
-    <label for="request">Maintenance Request:</label>
-    <input type="text" id="request" name="request" required>
-    <button type="submit">Submit</button>
-  </form>
+  <nav>
+    <div class="logo">Contact Us</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="committee.html">Committee</a></li>
+      <li><a href="maintenance.html">Maintenance</a></li>
+      <li><a href="notices.html">Notices</a></li>
+      <li><a href="payments.html">Payments</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Have a question or concern? Please fill out the form below and we'll get back to you as soon as possible.</p>
+    
+    <form method="POST" action="/api/contact-form">
+      <div class="form-group">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <button type="submit" class="cta-button">Submit</button>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2025 Strata Management</p>
+  </footer>
 </body>
 </html>

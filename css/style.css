@@ -105,6 +105,54 @@ nav ul li a:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+  background-color: #1e3a8a; /* Deep blue */
+  color: white;
+}
+
+table thead th {
+  padding: 12px;
+  font-weight: 600;
+}
+
+table tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f1f5f9; /* Light gray for alternating rows */
+}
+
+table tbody tr:hover {
+  background-color: #e2e8f0; /* Hover effect */
+}
+
+table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #d1d5db; /* Light gray border */
+}
+
+table a {
+  color: #2563eb; /* Blue for email links */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
 /* Footer */
 footer {
   text-align: center;
@@ -140,5 +188,13 @@ footer a:hover {
 
   .hero p {
     font-size: 1rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  table thead th, table tbody td {
+    padding: 10px;
   }
 }

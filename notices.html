@@ -4,22 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notices</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Remove bullet points from the list */
+    ul#notices {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul#notices .notice-item {
+      margin-bottom: 20px;
+    }
+  </style>
   <script>
-    async function fetchNotices() {
-      const response = await fetch('/api/get-notices');
-      const notices = await response.json();
+    function loadFakeNotices() {
+      const fakeNotices = [
+        {
+          title: "Annual General Meeting",
+          details: "The AGM will be held on June 15, 2025 at 7:00 PM in the community room. All residents are encouraged to attend.",
+          date: "May 5, 2025"
+        },
+        {
+          title: "Pool Maintenance",
+          details: "The swimming pool will be closed for maintenance from May 20-22, 2025. We apologize for any inconvenience.",
+          date: "May 8, 2025"
+        },
+        {
+          title: "Fire Alarm Testing",
+          details: "Mandatory fire alarm testing will take place on May 25, 2025 from 10:00 AM to 12:00 PM.",
+          date: "May 10, 2025"
+        },
+        {
+          title: "Visitor Parking Update",
+          details: "Starting June 1, all visitors must register their vehicles at the management office. Unregistered vehicles will be towed at owner's expense.",
+          date: "May 11, 2025"
+        },
+        {
+          title: "Garden Committee Volunteers",
+          details: "The Garden Committee is seeking volunteers for the summer planting session. Please contact Linda Davis if you're interested in participating.",
+          date: "May 9, 2025"
+        }
+      ];
+      
       const list = document.getElementById('notices');
-      notices.forEach(notice => {
+      list.innerHTML = ''; // Clear any existing content
+      
+      fakeNotices.forEach(notice => {
         const li = document.createElement('li');
-        li.textContent = `${notice.title}: ${notice.details}`;
+        li.className = 'notice-item';
+        li.innerHTML = `
+          <h3>${notice.title}</h3>
+          <p>${notice.details}</p>
+          <span class="notice-date">Posted: ${notice.date}</span>
+        `;
         list.appendChild(li);
       });
     }
-    window.onload = fetchNotices;
+    
+    window.onload = loadFakeNotices;
   </script>
 </head>
 <body>
-  <h1>Notices</h1>
-  <ul id="notices"></ul>
+  <nav>
+    <div class="logo">Notices</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="committee.html">Committee</a></li>
+      <li><a href="maintenance.html">Maintenance</a></li>
+      <li><a href="payments.html">Payments</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Building Notices</h1>
+    <p>Stay informed about important announcements and upcoming events in our building.</p>
+    <ul id="notices"></ul>
+  </div>
+  <footer>
+    <p>&copy; 2025 Strata Management</p>
+  </footer>
 </body>
 </html>
