@@ -6,17 +6,6 @@
     }
   ],
   "regions": ["syd1"],
-  "functions": {
-    "api/get-maintenance.js": {
-      "runtime": "edge@1"
-    },
-    "api/get-notices.js": {
-      "runtime": "edge@1"
-    },
-    "api/process-payment.js": {
-      "runtime": "edge@1"
-    }
-  },
   "headers": [
     {
       "source": "/assets/(.*)",
