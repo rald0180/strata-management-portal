@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments</title>
+</head>
+<body>
+  <h1>Payments</h1>
+  <p>To ensure smooth operation of the building, please make your payments on time.</p>
+  <h2>Payment Instructions</h2>
+  <p>You can pay using the following methods:</p>
+  <ul>
+    <li>Bank Transfer: Account Number - 12345678, BSB - 987654</li>
+    <li>Online Payment Portal: Visit <a href="https://strata-estate.vercel.app/">our website</a></li>
+  </ul>
+
+  <h2>Submit Payment Details</h2>
+  <form method="POST" action="/api/process-payment">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+    <button type="submit">Submit Payment</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/old-home", "destination": "/index.html" }
+  ],
+  "regions": ["syd1"]
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notices</title>
+  <script>
+    async function fetchNotices() {
+      const response = await fetch('/api/get-notices');
+      const notices = await response.json();
+      const list = document.getElementById('notices');
+      notices.forEach(notice => {
+        const li = document.createElement('li');
+        li.textContent = `${notice.title}: ${notice.details}`;
+        list.appendChild(li);
+      });
+    }
+    window.onload = fetchNotices;
+  </script>
+</head>
+<body>
+  <h1>Notices</h1>
+  <ul id="notices"></ul>
+</body>
+</html>
